@@ -116,26 +116,33 @@ body{background:radial-gradient(ellipse at 12% 4%,#dff5ff 0,transparent 34%),rad
 @media(prefers-reduced-motion:reduce){.hello-bot,.bot-arm-right,.bot-spark,.bot-speech{animation:none}}
 
 
-/* Le robot se promène sur toute la fenêtre, même pendant le défilement */
-.robot-traveler{position:fixed;left:0;top:0;width:300px;height:350px;z-index:7;pointer-events:none;transform:scale(.56);transform-origin:top left;animation:robotRoam 38s ease-in-out infinite;will-change:left,top}
+/* Le robot reste près des bords pour ne pas masquer le contenu */
+.robot-traveler{
+ position:fixed;left:0;top:0;width:300px;height:350px;
+ z-index:0;pointer-events:none;opacity:.48;
+ transform:scale(.38);transform-origin:top left;
+ animation:robotRoam 42s ease-in-out infinite;
+ will-change:left,top;
+}
 .robot-traveler .hello-bot{animation:botHover 4s ease-in-out infinite}
 @keyframes robotRoam{
-  0%,100%{left:3%;top:16%}
-  18%{left:69%;top:13%}
-  38%{left:73%;top:59%}
-  58%{left:8%;top:65%}
-  78%{left:39%;top:34%}
+  0%,100%{left:1%;top:8%}
+  25%{left:calc(100% - 118px);top:8%}
+  50%{left:calc(100% - 118px);top:76%}
+  75%{left:1%;top:76%}
 }
 @media(max-width:700px){
- .robot-traveler{transform:scale(.39);animation-duration:32s}
+ .robot-traveler{transform:scale(.28);opacity:.38;animation-duration:36s}
  @keyframes robotRoam{
-  0%,100%{left:1%;top:12%}
-  25%{left:57%;top:17%}
-  50%{left:58%;top:61%}
-  75%{left:2%;top:58%}
+  0%,100%{left:0;top:7%}
+  25%{left:calc(100% - 86px);top:7%}
+  50%{left:calc(100% - 86px);top:78%}
+  75%{left:0;top:78%}
  }
 }
-@media(prefers-reduced-motion:reduce){.robot-traveler{animation:none;left:auto;right:8px;top:75%;transform:scale(.42)}}
+@media(prefers-reduced-motion:reduce){
+ .robot-traveler{animation:none;left:auto;right:8px;top:auto;bottom:8px;transform:scale(.3);opacity:.35}
+}
 
 </style>
 </head>
