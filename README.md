@@ -1,6 +1,6 @@
 # Karl Bryan — Portfolio
 
-Portfolio statique en HTML, CSS et JavaScript, hébergé avec GitHub Pages.
+Portfolio en HTML, CSS et JavaScript, connecté à Supabase pour l'administration des réalisations.
 
 ## 1. Publication GitHub Pages
 
@@ -27,9 +27,18 @@ Le workflow `.github/workflows/pages.yml` publie le contenu du dépôt à chaque
 
 Ne publie jamais la clé `service_role` ou une clé `secret`. Ne partage pas ton mot de passe.
 
-## 3. État de l'intégration
+## 3. Administration du portfolio
 
-Le schéma de base de données, les règles RLS et le bucket d'images sont préparés. L'interface de `index.html` utilise encore son ancien stockage local : elle n'est pas encore connectée à Supabase. L'authentification et les opérations CRUD devront être reliées au client Supabase avant de considérer l'administration comme opérationnelle.
+L'interface `index.html` est maintenant reliée au client Supabase : connexion par e-mail/mot de passe, contrôle du rôle administrateur, création/modification/suppression des projets et téléversement de plusieurs photos par réalisation. Les visiteurs voient uniquement les projets publiés.
+
+Après avoir exécuté `supabase/schema.sql` (y compris l'ajout de `image_urls`), crée le compte dans **Authentication → Users → Add user**. Copie son UUID puis exécute :
+
+```sql
+insert into public.portfolio_admins (user_id)
+values ('UUID-DE-TON-UTILISATEUR');
+```
+
+Le site utilise le Project URL et la clé Publishable configurés dans son script. Cette clé est destinée au navigateur ; la sécurité repose sur les politiques RLS. Ne publie jamais de mot de passe PostgreSQL, de clé `service_role` ou de clé `secret`.
 
 ## Fichiers importants
 
