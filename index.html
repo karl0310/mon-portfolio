@@ -33,7 +33,7 @@
 .project-link{transition:color .2s,border-color .2s}.project-link:hover{color:var(--accent);border-color:var(--accent)}
 .timeline-row{transition:padding-left .3s,background .3s}.timeline-row:hover{padding-left:12px}.timeline-row h3{transition:color .25s}.timeline-row:hover h3{color:#c5d4b6}
 .contact-panel{position:relative;overflow:hidden}.contact-panel:after{content:"↗";position:absolute;right:32%;top:-50px;font:240px Manrope,sans-serif;color:#ffffff20;pointer-events:none;transform:rotate(-12deg);transition:transform .7s}.contact-panel:hover:after{transform:translate(12px,-10px) rotate(0)}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:1;transform:none;transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.js .reveal{opacity:0;transform:translateY(28px)}.js .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes blink{to{visibility:hidden}}
 @keyframes orbitFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
@@ -86,6 +86,7 @@ function load(){try{const d=localStorage.getItem("kb_projects");return d?JSON.pa
 function getCats(){try{return JSON.parse(localStorage.getItem("kb_cats")||"[]")}catch{return []}}
 function save(){localStorage.setItem("kb_projects",JSON.stringify(projects));localStorage.setItem("kb_cats",JSON.stringify(categories))}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.documentElement.classList.add("js");
 document.getElementById("year").textContent=new Date().getFullYear();
 function render(){categories=[...new Set([...categories,...projects.map(p=>p.category)])];document.getElementById("filters").innerHTML=["Tous",...categories].map(c=>'<button class="filter '+(c===filter?"active":"")+'" onclick="setFilter('+JSON.stringify(c).replace(/</g,"\\u003c")+')">'+esc(c)+'</button>').join("");const list=projects.filter(p=>p.status!=="Brouillon"&&(filter==="Tous"||p.category===filter));document.getElementById("projects").innerHTML=list.length?list.map((p,i)=>'<article class="project reveal visible"><div class="project-visual"><span class="project-index">PROJECT / 0'+(i+1)+'</span><div class="visual-shape"><span class="visual-glyph">'+esc(p.icon||"✳")+'</span></div></div><div class="project-body"><div class="project-meta"><span>'+esc(p.category)+'</span><span>'+esc(p.date)+'</span></div><h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p></div></article>').join(""):'<div class="empty">Aucun projet publié dans cette catégorie.</div>'}
 function setFilter(c){filter=c;render()}
