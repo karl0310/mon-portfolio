@@ -42,6 +42,38 @@
 @keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
+
+/* Thème lumineux bleu-cyan et effets de lumière */
+:root{--paper:#f7fbff;--white:#fff;--ink:#102238;--muted:#617286;--line:#d9e6f2;--accent:#087fca;--green:#b9ecf2;--dark:#e8f5fc}
+body{background:radial-gradient(ellipse at 12% 4%,#dff5ff 0,transparent 34%),radial-gradient(ellipse at 90% 22%,#e4efff 0,transparent 32%),linear-gradient(135deg,#fbfdff,#edf7ff 55%,#f8fcff);color:var(--ink)}
+.topbar{position:sticky;top:0;z-index:8;background:#f8fcffeF;backdrop-filter:blur(16px);box-shadow:0 4px 24px #4a9ec414}
+.orbit{border-color:#a8d8ed;box-shadow:0 0 55px #69c8ee45,inset 0 0 35px #ffffffcc}
+.orbit:before,.orbit:after{border-color:#b6dff0}
+.orbit-core{background:linear-gradient(135deg,#c5f3ff,#8ed7f7 55%,#d5f6ff);box-shadow:0 15px 50px #45b9e966,inset 0 0 25px #ffffffc9}
+.orbit-label{background:#ffffffdf;box-shadow:0 4px 18px #3b9bc522}
+.ticker{background:linear-gradient(90deg,#087fca,#13a7c7,#087fca);color:white}
+.ticker b{color:#d8f8ff}
+.skills-section{background:linear-gradient(135deg,#eaf7ff,#f8fcff 55%,#e5f6ff)}
+.skill:hover{box-shadow:0 18px 35px #1689c51c}
+.project-visual{background:linear-gradient(135deg,#d9f2ff,#effaff)}
+.project:nth-child(2n) .project-visual{background:linear-gradient(135deg,#d9eaff,#f0f7ff)}
+.project:nth-child(3n) .project-visual{background:linear-gradient(135deg,#d5f7f1,#effffc)}
+.experience{background:linear-gradient(135deg,#e4f4ff,#f9fcff 48%,#dff3ff);color:var(--ink)}
+.experience .section-no,.experience .timeline-date{color:#087fca}
+.experience .section-desc,.experience .timeline-row p{color:#617286}
+.experience .timeline,.experience .timeline-row{border-color:#c9deec}
+.experience .timeline-row:hover h3{color:#087fca}
+.contact-panel{background:linear-gradient(120deg,#c8f2ff,#b6e5ff 52%,#d6f7ff);box-shadow:0 20px 60px #56b8df35}
+.contact-panel:after{color:#ffffff80}
+.typed-name{display:block!important;visibility:visible!important;min-height:1.7em;font:800 clamp(20px,2.4vw,29px) Manrope,sans-serif;letter-spacing:-.045em;color:#087fca;text-shadow:0 4px 22px #5cc5ec66;margin:0 0 14px}
+.typed-name:after{content:"";display:inline-block;width:2px;height:1em;background:#087fca;margin-left:5px;vertical-align:-.12em;animation:blink .8s steps(2,start) infinite}
+.hero .reveal{opacity:1!important;transform:none!important}
+.js .reveal:not(.hero .reveal){opacity:0;transform:translateY(28px)}
+.js .reveal.visible{opacity:1;transform:translateY(0)}
+.certificate-link{display:inline-block;margin-top:8px;color:#087fca;font:700 11px Manrope;border-bottom:1px solid #087fca;padding-bottom:3px;transition:letter-spacing .2s,color .2s}
+.certificate-link:hover{letter-spacing:.04em;color:#075c91}
+@media(prefers-reduced-motion:reduce){.typed-name:after{animation:none}}
+
 </style>
 </head>
 <body>
@@ -53,7 +85,7 @@
 <main>
 <section class="hero shell" id="home">
 <div class="reveal"><div class="eyebrow">Portfolio personnel · Douala, Cameroun</div>
-<h1>La technologie, avec <em>sens</em> et méthode.</h1><p class="typed-name" id="typedName" aria-label="Karl Bryan Tchoupe Pembe"></p>
+<h1>La technologie, avec <em>sens</em> et méthode.</h1><p class="typed-name" id="typedName" aria-label="Karl Bryan Tchoupe Pembe">Karl Bryan Tchoupe Pembe</p>
 <p class="intro">Je suis <strong>Karl Bryan Tchoupe Pembe</strong>, technicien en maintenance et installation des systèmes électroniques, titulaire d’un DUT en Génie Informatique obtenu en 2026. Je poursuis actuellement une Licence de Technologie en Cybersécurité à l’IUT de Douala.</p>
 <div class="hero-actions"><a class="solid-link" href="#work">DÉCOUVRIR MES PROJETS <span>↗</span></a><a class="text-link" href="#contact">Entrer en contact</a></div></div>
 <div class="hero-art reveal"><div class="orbit"><div class="orbit-core">KB</div><span class="orbit-label label-a">INFORMATIQUE</span><span class="orbit-label label-b">SYSTÈMES & RÉSEAUX</span><span class="orbit-label label-c">CYBERSÉCURITÉ</span></div><div class="availability"><i></i> Curieux de nouveaux projets</div></div>
@@ -71,7 +103,7 @@
 <section class="section shell" id="work"><div class="work-head"><div class="section-head reveal"><div class="section-no">03 / SÉLECTION</div><div><h2 class="section-title">Quelques projets & réalisations.</h2><p class="section-desc">Une sélection de travaux académiques et de réalisations techniques. Cette liste pourra être enrichie depuis l'espace administrateur.</p></div></div></div><div id="filters" class="filters"></div><div id="projects" class="project-grid"><article class="project"><div class="project-visual"><span class="project-index">PROJECT / 01</span><div class="visual-shape"><span class="visual-glyph">▤</span></div></div><div class="project-body"><div class="project-meta"><span>Développement web</span><span>2026</span></div><h3>Portail intelligent de gestion documentaire</h3><p>Projet académique autour de la gestion des fichiers administratifs avec reconnaissance OCR et organisation des documents.</p></div></article><article class="project"><div class="project-visual"><span class="project-index">PROJECT / 02</span><div class="visual-shape"><span class="visual-glyph">◎</span></div></div><div class="project-body"><div class="project-meta"><span>Sécurité électronique</span><span>2025–2026</span></div><h3>Installation de systèmes de vidéosurveillance</h3><p>Travaux pratiques autour de l’installation, de la configuration et du suivi de caméras de surveillance.</p></div></article><article class="project"><div class="project-visual"><span class="project-index">PROJECT / 03</span><div class="visual-shape"><span class="visual-glyph">⌘</span></div></div><div class="project-body"><div class="project-meta"><span>Maintenance informatique</span><span>2025</span></div><h3>Maintenance et configuration informatique</h3><p>Interventions de maintenance, diagnostic et configuration de postes et d’équipements informatiques.</p></div></article></div></section>
 <section class="section experience" id="experience"><div class="shell"><div class="section-head reveal"><div class="section-no">04 / PARCOURS</div><div><h2 class="section-title">Apprendre, pratiquer, progresser.</h2><p class="section-desc">Les étapes qui construisent mon parcours dans les technologies de l'information et les systèmes électroniques.</p></div></div>
 <div class="timeline reveal"><div class="timeline-row"><span class="timeline-date">2026 — EN COURS</span><h3>Licence de Technologie · Cybersécurité</h3><p>IUT de Douala — poursuite des études en cybersécurité.</p></div><div class="timeline-row"><span class="timeline-date">2024 — 2026</span><h3>DUT · Génie Informatique</h3><p>IUT de Douala — diplôme obtenu en 2026.</p></div><div class="timeline-row"><span class="timeline-date">2024 — 2025</span><h3>Formation en Génie Informatique</h3><p>IUT de Douala — première année du parcours universitaire en informatique.</p></div><div class="timeline-row"><span class="timeline-date">2024</span><h3>BT · Maintenance et installation des systèmes électroniques</h3><p>Lycée Technique de Douala Koumassi — formation technique en équipements et systèmes électroniques.</p></div><div class="timeline-row"><span class="timeline-date">STAGE ACADÉMIQUE</span><h3>Kebelect · Douala</h3><p>Participation à la rénovation complète des systèmes électroniques d’une maison.</p></div><div class="timeline-row"><span class="timeline-date">STAGE · 06 MOIS</span><h3>Afrilux S.A · Technicien informatique</h3><p>Stage professionnel de six mois au sein du service informatique.</p></div><div class="timeline-row"><span class="timeline-date">MISSIONS INDÉPENDANTES</span><h3>Installation de caméras · Douala</h3><p>Réalisation d’installations de caméras de surveillance pour des particuliers et petites structures, configuration, mise en service et suivi du fonctionnement.</p></div><div class="timeline-row"><span class="timeline-date">ACTIVITÉ</span><h3>LK Renov & Deco · Douala</h3><p>Travaux de décoration intérieure et de peinture.</p></div></div></div></section>
-<section class="section shell" id="certifications"><div class="section-head reveal"><div class="section-no">05 / CERTIFICATIONS</div><div><h2 class="section-title">Apprendre et renforcer mes compétences.</h2><p class="section-desc">Certifications et formations complémentaires en cybersécurité et gestion des risques.</p></div></div><div class="timeline reveal"><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>SASE Expert Level 1</h3><p>Cato Networks · Identifiant : iwz5uqsmbj</p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Penetration Testing — Course</h3><p>Centri · Identifiant : 749678985</p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Introduction à la méthode EBIOS Risk Manager</h3><p>Club EBIOS</p></div><div class="timeline-row"><span class="timeline-date">FORMATION</span><h3>Introduction à la cybersécurité</h3><p>Connaissances fondamentales en sécurité des systèmes d’information.</p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Zero Trust Security Essentials</h3><p>Cato Networks · Expiration : janvier 2036 · Identifiant : nun7bsalvn</p></div></div></section><section class="section shell" id="contact"><div class="contact-panel reveal"><div><div class="eyebrow">Une idée, un projet, une opportunité ?</div><h2>Faisons avancer les choses.</h2></div><a class="solid-link" href="mailto:dollarbryan8@gmail.com">ME CONTACTER ↗</a></div><div class="about-details" style="margin-top:28px"><div class="detail-row"><span>Téléphone</span><span><a href="tel:+237692860695">692 86 06 95</a> · <a href="tel:+237652591205">652 59 12 05</a></span></div><div class="detail-row"><span>E-mail</span><span><a href="mailto:dollarbryan8@gmail.com">dollarbryan8@gmail.com</a></span></div><div class="detail-row"><span>Localisation</span><span>Douala, Cameroun</span></div><div class="detail-row"><span>Langues</span><span>Français · Anglais</span></div></div></section>
+<section class="section shell" id="certifications"><div class="section-head reveal"><div class="section-no">05 / CERTIFICATIONS</div><div><h2 class="section-title">Apprendre et renforcer mes compétences.</h2><p class="section-desc">Certifications et formations complémentaires en cybersécurité et gestion des risques.</p></div></div><div class="timeline reveal"><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>SASE Expert Level 1</h3><p>Cato Networks · Identifiant : iwz5uqsmbj<br><a class="certificate-link" href="https://certifications.catonetworks.com/certificates/iwz5uqsmbj" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Penetration Testing — Course</h3><p>Centri · Identifiant : 749678985<br><a class="certificate-link" href="https://elearning.centri.org/home/certificate/749678985" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Introduction à la méthode EBIOS Risk Manager</h3><p>Club EBIOS</p></div><div class="timeline-row"><span class="timeline-date">FORMATION</span><h3>Introduction à la cybersécurité</h3><p>Connaissances fondamentales en sécurité des systèmes d’information.</p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Zero Trust Security Essentials</h3><p>Cato Networks · Expiration : janvier 2036 · Identifiant : nun7bsalvn<br><a class="certificate-link" href="https://certifications.catonetworks.com/certificates/nun7bsalvn" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div></div></section><section class="section shell" id="contact"><div class="contact-panel reveal"><div><div class="eyebrow">Une idée, un projet, une opportunité ?</div><h2>Faisons avancer les choses.</h2></div><a class="solid-link" href="mailto:dollarbryan8@gmail.com">ME CONTACTER ↗</a></div><div class="about-details" style="margin-top:28px"><div class="detail-row"><span>Téléphone</span><span><a href="tel:+237692860695">692 86 06 95</a> · <a href="tel:+237652591205">652 59 12 05</a></span></div><div class="detail-row"><span>E-mail</span><span><a href="mailto:dollarbryan8@gmail.com">dollarbryan8@gmail.com</a></span></div><div class="detail-row"><span>Localisation</span><span>Douala, Cameroun</span></div><div class="detail-row"><span>Langues</span><span>Français · Anglais</span></div></div></section>
 </main>
 <footer class="shell"><span>© <span id="year"></span> Karl Bryan Tchoupe Pembe · Portfolio</span><div class="footer-links"><a href="#home">Retour en haut ↑</a><a href="mailto:dollarbrayan8@gmail.com">E-mail</a></div></footer>
 <div id="backdrop" class="backdrop" onclick="if(event.target===this)closeAdmin()"><div class="modal"><div id="modalcontent"></div></div></div>
@@ -114,5 +146,20 @@ window.addEventListener("scroll",()=>document.querySelector(".topbar")?.classLis
 
 if("IntersectionObserver" in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el))}
 </script>
+
+<script>
+(function(){
+ const target=document.getElementById('typedName');
+ if(!target)return;
+ const full='Karl Bryan Tchoupe Pembe';
+ let index=0;
+ target.textContent='';
+ const tick=()=>{index++;target.textContent=full.slice(0,index);if(index<full.length)setTimeout(tick,115)};
+ setTimeout(tick,500);
+ const brand=document.querySelector('.brand');
+ if(brand)brand.addEventListener('click',function(event){event.preventDefault();document.getElementById('home').scrollIntoView({behavior:'smooth'});index=0;target.textContent='';setTimeout(tick,250)});
+})();
+</script>
+
 </body>
 </html>
