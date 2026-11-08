@@ -33,7 +33,7 @@
 .project-link{transition:color .2s,border-color .2s}.project-link:hover{color:var(--accent);border-color:var(--accent)}
 .timeline-row{transition:padding-left .3s,background .3s}.timeline-row:hover{padding-left:12px}.timeline-row h3{transition:color .25s}.timeline-row:hover h3{color:#c5d4b6}
 .contact-panel{position:relative;overflow:hidden}.contact-panel:after{content:"↗";position:absolute;right:32%;top:-50px;font:240px Manrope,sans-serif;color:#ffffff20;pointer-events:none;transform:rotate(-12deg);transition:transform .7s}.contact-panel:hover:after{transform:translate(12px,-10px) rotate(0)}
-.reveal{opacity:1;transform:none;transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.js .reveal{opacity:0;transform:translateY(28px)}.js .reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:1;transform:none;transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.js .reveal{opacity:1;transform:none}.js .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes blink{to{visibility:hidden}}
 @keyframes orbitFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
@@ -68,7 +68,7 @@ body{background:radial-gradient(ellipse at 12% 4%,#dff5ff 0,transparent 34%),rad
 .typed-name{display:block!important;visibility:visible!important;min-height:1.7em;font:800 clamp(20px,2.4vw,29px) Manrope,sans-serif;letter-spacing:-.045em;color:#087fca;text-shadow:0 4px 22px #5cc5ec66;margin:0 0 14px}
 .typed-name:after{content:"";display:inline-block;width:2px;height:1em;background:#087fca;margin-left:5px;vertical-align:-.12em;animation:blink .8s steps(2,start) infinite}
 .hero .reveal{opacity:1!important;transform:none!important}
-.js .reveal:not(.hero .reveal){opacity:0;transform:translateY(28px)}
+.js .reveal:not(.hero .reveal){opacity:1;transform:none}
 .js .reveal.visible{opacity:1;transform:translateY(0)}
 .certificate-link{display:inline-block;margin-top:8px;color:#087fca;font:700 11px Manrope;border-bottom:1px solid #087fca;padding-bottom:3px;transition:letter-spacing .2s,color .2s}
 .certificate-link:hover{letter-spacing:.04em;color:#075c91}
