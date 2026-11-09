@@ -281,12 +281,51 @@ body.dark-mode .bot-speech{background:#10283b;color:#dff6ff;border-color:#3c7897
 body.dark-mode .certificate-link{color:#67cef5;border-color:#67cef5}
 body.dark-mode a:hover{color:#67cef5}
 
+
+/* Projets réels, technologies et profils */
+.featured-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.featured-card{padding:25px;background:var(--white);border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 35px #1689c50b;transition:transform .3s,box-shadow .3s}
+.featured-card:hover{transform:translateY(-5px);box-shadow:0 20px 45px #1689c51a}
+.featured-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.project-mark{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;font:800 21px Manrope,sans-serif;letter-spacing:-.08em;color:white;box-shadow:0 8px 20px #10223820}
+.mark-study{background:linear-gradient(135deg,#147ec4,#43c4df)}
+.mark-presence{background:linear-gradient(135deg,#5148b9,#8a7cf2)}
+.mark-pressing{background:linear-gradient(135deg,#172f4b,#25a5a1)}
+.featured-kicker{font:10px 'DM Mono',monospace;letter-spacing:.1em;color:var(--accent);text-align:right}
+.featured-card h3{font:700 23px Manrope,sans-serif;letter-spacing:-.05em;margin:20px 0 8px}
+.featured-card>p{font-size:12px;line-height:1.8;color:var(--muted);min-height:44px}
+.tech-list{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 20px}
+.tech-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border:1px solid var(--line);border-radius:5px;background:color-mix(in srgb,var(--white) 88%,var(--paper));font:10px 'DM Mono',monospace;color:var(--muted)}
+.tech-chip img{width:14px;height:14px;object-fit:contain}
+.tech-text-icon{width:14px;height:14px;display:inline-grid;place-items:center;border-radius:3px;background:#dff2ff;color:#087fca;font:700 8px Manrope,sans-serif}
+.featured-links{display:flex;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:15px}
+.featured-links a{font-size:11px;font-weight:700;color:var(--accent)}
+.featured-links a:hover{text-decoration:underline}
+.stack-note{font-size:10px;line-height:1.7;color:var(--muted);margin-top:18px}
+.network-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.network-card{display:flex;align-items:center;gap:14px;padding:17px;background:var(--white);border:1px solid var(--line);border-radius:7px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.network-card:hover{transform:translateY(-3px);border-color:#82c9e8;box-shadow:0 12px 28px #1689c512}
+.network-icon{width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:#eaf6ff;display:grid;place-items:center}
+.network-icon img{width:21px;height:21px}
+.network-letter{font:800 20px Manrope,sans-serif;color:#087fca}
+.network-card>span:nth-child(2){display:grid;gap:4px;flex:1;min-width:0}
+.network-card strong{font:700 13px Manrope,sans-serif}
+.network-card small{font-size:10px;line-height:1.5;color:var(--muted)}
+.network-card>b{font-size:16px;color:var(--accent)}
+@media(max-width:760px){.featured-projects,.network-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.featured-card{padding:20px}.featured-card>p{min-height:0}.featured-kicker{font-size:8px}.tech-chip{font-size:9px}}
+body.dark-mode .featured-card,body.dark-mode .network-card{background:#111f32;border-color:#263d56;box-shadow:0 12px 35px #0003}
+body.dark-mode .tech-chip{background:#16283d;border-color:#2c435c;color:#c0d0e0}
+body.dark-mode .network-icon{background:#1b3851}
+body.dark-mode .network-letter{color:#8ddcff}
+body.dark-mode .tech-text-icon{background:#21415c;color:#9be5ff}
+
 </style>
 </head>
 <body>
 <header class="topbar shell">
 <a class="brand" href="#home" onclick="restartName(event)">KARL BRYAN<span>.</span></a>
-<nav class="nav"><a href="#about">À propos</a><a href="#expertise">Compétences</a><a href="#work">Réalisations</a><a href="#experience">Expériences</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a></nav>
+<nav class="nav"><a href="#about">À propos</a><a href="#expertise">Compétences</a><a href="#work">Réalisations</a><a href="#tech-stack">Technologies</a><a href="#experience">Parcours</a><a href="#certifications">Certifications</a><a href="#network">Réseaux</a><a href="#contact">Contact</a></nav>
 <div class="header-actions"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" title="Activer le mode sombre">☾</button><button class="nav-cta" onclick="openAdmin()">ESPACE ADMIN ↗</button></div>
 </header>
 <main>
@@ -308,9 +347,78 @@ body.dark-mode a:hover{color:#67cef5}
 <article class="skill reveal"><span class="skill-num">04 — ELEC</span><h3>Systèmes électroniques</h3><p>Installation et maintenance de caméras filaires, Wi-Fi, 4G et solaires, et systèmes de sécurité.</p></article>
 </div><div class="about-details" style="margin-top:26px"><div class="detail-row"><span>Qualités</span><span>Capacité d’adaptation · Résolution de problèmes · Travail en équipe</span></div><div class="detail-row"><span>Autres</span><span>Permis de conduire : catégorie B</span></div><div class="detail-row"><span>Centres d’intérêt</span><span>Jeux vidéo · Musique · Sport · Nouvelles technologies · Développement informatique · Réseaux et sécurité numérique · Lecture · Développement personnel · Entrepreneuriat</span></div></div></div></section>
 <section class="section shell" id="work"><div class="work-head"><div class="section-head reveal"><div class="section-no">03 / SÉLECTION</div><div><h2 class="section-title">Quelques projets & réalisations.</h2><p class="section-desc">Une sélection de travaux académiques et de réalisations techniques. Cette liste pourra être enrichie depuis l'espace administrateur.</p></div></div></div><div id="filters" class="filters"></div><div id="projects" class="project-grid"><article class="project"><div class="project-visual"><span class="project-index">PROJECT / 01</span><div class="visual-shape"><span class="visual-glyph">▤</span></div></div><div class="project-body"><div class="project-meta"><span>Développement web</span><span>2026</span></div><h3>Portail intelligent de gestion documentaire</h3><p>Projet académique autour de la gestion des fichiers administratifs avec reconnaissance OCR et organisation des documents.</p></div></article><article class="project"><div class="project-visual"><span class="project-index">PROJECT / 02</span><div class="visual-shape"><span class="visual-glyph">◎</span></div></div><div class="project-body"><div class="project-meta"><span>Sécurité électronique</span><span>2025–2026</span></div><h3>Installation de systèmes de vidéosurveillance</h3><p>Travaux pratiques autour de l’installation, de la configuration et du suivi de caméras de surveillance.</p></div></article><article class="project"><div class="project-visual"><span class="project-index">PROJECT / 03</span><div class="visual-shape"><span class="visual-glyph">⌘</span></div></div><div class="project-body"><div class="project-meta"><span>Maintenance informatique</span><span>2025</span></div><h3>Maintenance et configuration informatique</h3><p>Interventions de maintenance, diagnostic et configuration de postes et d’équipements informatiques.</p></div></article></div></section>
-<section class="section experience" id="experience"><div class="shell"><div class="section-head reveal"><div class="section-no">04 / PARCOURS</div><div><h2 class="section-title">Apprendre, pratiquer, progresser.</h2><p class="section-desc">Les étapes qui construisent mon parcours dans les technologies de l'information et les systèmes électroniques.</p></div></div>
+
+<section class="section shell" id="tech-stack">
+  <div class="section-head reveal">
+    <div class="section-no">04 / TECHNOLOGIES</div>
+    <div><h2 class="section-title">Les outils derrière les projets.</h2><p class="section-desc">Technologies relevées directement dans les dépôts GitHub des applications présentées. Les logos sont associés aux outils réellement déclarés dans chaque projet.</p></div>
+  </div>
+  <div class="featured-projects">
+    <article class="featured-card reveal">
+      <div class="featured-top"><div class="project-mark mark-study">ES</div><span class="featured-kicker">ÉDUCATION · PLATEFORME WEB</span></div>
+      <h3>Etudes Space</h3><p>Plateforme de ressources pédagogiques pour organiser et consulter des cours, exercices et épreuves scolaires et universitaires.</p>
+      <div class="tech-list">
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/nextdotjs" alt="">Next.js 15</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/react" alt="">React 19</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/typescript" alt="">TypeScript</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/tailwindcss" alt="">Tailwind CSS 4</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/prisma" alt="">Prisma</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/postgresql" alt="">PostgreSQL</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/supabase" alt="">Supabase</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/zod" alt="">Zod</span>
+      </div>
+      <div class="featured-links"><a href="https://etudes-spaces.vercel.app/" target="_blank" rel="noopener noreferrer">Voir l’application ↗</a><a href="https://github.com/sergeabena20-max/ETUDES-SPACES" target="_blank" rel="noopener noreferrer">Code source ↗</a></div>
+    </article>
+    <article class="featured-card reveal">
+      <div class="featured-top"><div class="project-mark mark-presence">PF</div><span class="featured-kicker">GESTION · PRÉSENCES</span></div>
+      <h3>Presence Flow</h3><p>Application de gestion des présences et des organisations, avec suivi des pointages et des utilisateurs.</p>
+      <div class="tech-list">
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/nextdotjs" alt="">Next.js 15</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/react" alt="">React 19</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/typescript" alt="">TypeScript</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/prisma" alt="">Prisma</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/postgresql" alt="">PostgreSQL</span>
+        <span class="tech-chip"><span class="tech-text-icon">J</span>jose</span>
+        <span class="tech-chip"><span class="tech-text-icon">B</span>bcryptjs</span>
+      </div>
+      <div class="featured-links"><a href="https://presence-flow.vercel.app/" target="_blank" rel="noopener noreferrer">Voir l’application ↗</a><a href="https://github.com/sergeabena20-max/Presence-flow" target="_blank" rel="noopener noreferrer">Code source ↗</a></div>
+    </article>
+    <article class="featured-card reveal">
+      <div class="featured-top"><div class="project-mark mark-pressing">MN</div><span class="featured-kicker">GESTION · PRESSING</span></div>
+      <h3>MN Pressing</h3><p>Application de gestion d’un pressing : clients, commandes, paiements, suivi des articles et tableaux de bord.</p>
+      <div class="tech-list">
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/nextdotjs" alt="">Next.js 15</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/react" alt="">React 19</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/typescript" alt="">TypeScript</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/tailwindcss" alt="">Tailwind CSS 3</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/prisma" alt="">Prisma</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/postgresql" alt="">PostgreSQL</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/cloudinary" alt="">Cloudinary</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/zod" alt="">Zod</span>
+        <span class="tech-chip"><img src="https://cdn.simpleicons.org/chartdotjs" alt="">Chart.js</span>
+        <span class="tech-chip"><span class="tech-text-icon">RH</span>React Hook Form</span>
+      </div>
+      <div class="featured-links"><a href="https://mn-pressing.vercel.app/" target="_blank" rel="noopener noreferrer">Voir l’application ↗</a><a href="https://github.com/ksds-bot/MN-PRESSING" target="_blank" rel="noopener noreferrer">Code source ↗</a></div>
+    </article>
+  </div>
+  <p class="stack-note">Note : les logos et technologies affichés correspondent aux dépendances et à la configuration des dépôts consultés. Ils ne signifient pas que chaque outil est utilisé sur toutes les pages de l’application.</p>
+</section>
+<section class="section experience" id="experience"><div class="shell"><div class="section-head reveal"><div class="section-no">05 / PARCOURS</div><div><h2 class="section-title">Apprendre, pratiquer, progresser.</h2><p class="section-desc">Les étapes qui construisent mon parcours dans les technologies de l'information et les systèmes électroniques.</p></div></div>
 <div class="timeline reveal"><div class="timeline-row"><span class="timeline-date">2026 — EN COURS</span><h3>Licence de Technologie · Cybersécurité</h3><p>IUT de Douala — poursuite des études en cybersécurité.</p></div><div class="timeline-row"><span class="timeline-date">2024 — 2026</span><h3>DUT · Génie Informatique</h3><p>IUT de Douala — diplôme obtenu en 2026.</p></div><div class="timeline-row"><span class="timeline-date">2024 — 2025</span><h3>Formation en Génie Informatique</h3><p>IUT de Douala — première année du parcours universitaire en informatique.</p></div><div class="timeline-row"><span class="timeline-date">2024</span><h3>BT · Maintenance et installation des systèmes électroniques</h3><p>Lycée Technique de Douala Koumassi — formation technique en équipements et systèmes électroniques.</p></div><div class="timeline-row"><span class="timeline-date">STAGE ACADÉMIQUE</span><h3>Kebelect · Douala</h3><p>Participation à la rénovation complète des systèmes électroniques d’une maison.</p></div><div class="timeline-row"><span class="timeline-date">STAGE · 06 MOIS</span><h3>Afrilux S.A · Technicien informatique</h3><p>Stage professionnel de six mois au sein du service informatique.</p></div><div class="timeline-row"><span class="timeline-date">MISSIONS INDÉPENDANTES</span><h3>Installation de caméras · Douala</h3><p>Réalisation d’installations de caméras de surveillance pour des particuliers et petites structures, configuration, mise en service et suivi du fonctionnement.</p></div><div class="timeline-row"><span class="timeline-date">ACTIVITÉ</span><h3>LK Renov & Deco · Douala</h3><p>Travaux de décoration intérieure et de peinture.</p></div></div></div></section>
-<section class="section shell" id="certifications"><div class="section-head reveal"><div class="section-no">05 / CERTIFICATIONS</div><div><h2 class="section-title">Apprendre et renforcer mes compétences.</h2><p class="section-desc">Certifications et formations complémentaires en cybersécurité et gestion des risques.</p></div></div><div class="timeline reveal"><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>SASE Expert Level 1</h3><p>Cato Networks · Identifiant : iwz5uqsmbj<br><a class="certificate-link" href="https://certifications.catonetworks.com/certificates/iwz5uqsmbj" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Penetration Testing — Course</h3><p>Centri · Identifiant : 749678985<br><a class="certificate-link" href="https://elearning.centri.org/home/certificate/749678985" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Introduction à la méthode EBIOS Risk Manager</h3><p>Club EBIOS</p></div><div class="timeline-row"><span class="timeline-date">FORMATION</span><h3>Introduction à la cybersécurité</h3><p>Connaissances fondamentales en sécurité des systèmes d’information.</p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Zero Trust Security Essentials</h3><p>Cato Networks · Expiration : janvier 2036 · Identifiant : nun7bsalvn<br><a class="certificate-link" href="https://certifications.catonetworks.com/certificates/nun7bsalvn" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div></div></section><section class="section shell" id="contact"><div class="contact-panel reveal"><div><div class="eyebrow">Une idée, un projet, une opportunité ?</div><h2>Faisons avancer les choses.</h2></div><a class="solid-link" href="mailto:dollarbryan8@gmail.com">ME CONTACTER ↗</a></div><div class="about-details" style="margin-top:28px"><div class="detail-row"><span>Téléphone</span><span><a href="tel:+237692860695">692 86 06 95</a> · <a href="tel:+237652591205">652 59 12 05</a></span></div><div class="detail-row"><span>E-mail</span><span><a href="mailto:dollarbryan8@gmail.com">dollarbryan8@gmail.com</a></span></div><div class="detail-row"><span>Localisation</span><span>Douala, Cameroun</span></div><div class="detail-row"><span>Langues</span><span>Français · Anglais</span></div></div></section>
+<section class="section shell" id="certifications"><div class="section-head reveal"><div class="section-no">06 / CERTIFICATIONS</div><div><h2 class="section-title">Apprendre et renforcer mes compétences.</h2><p class="section-desc">Certifications et formations complémentaires en cybersécurité et gestion des risques.</p></div></div><div class="timeline reveal"><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>SASE Expert Level 1</h3><p>Cato Networks · Identifiant : iwz5uqsmbj<br><a class="certificate-link" href="https://certifications.catonetworks.com/certificates/iwz5uqsmbj" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Penetration Testing — Course</h3><p>Centri · Identifiant : 749678985<br><a class="certificate-link" href="https://elearning.centri.org/home/certificate/749678985" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Introduction à la méthode EBIOS Risk Manager</h3><p>Club EBIOS</p></div><div class="timeline-row"><span class="timeline-date">FORMATION</span><h3>Introduction à la cybersécurité</h3><p>Connaissances fondamentales en sécurité des systèmes d’information.</p></div><div class="timeline-row"><span class="timeline-date">OCT. 2026</span><h3>Zero Trust Security Essentials</h3><p>Cato Networks · Expiration : janvier 2036 · Identifiant : nun7bsalvn<br><a class="certificate-link" href="https://certifications.catonetworks.com/certificates/nun7bsalvn" target="_blank" rel="noopener noreferrer">Consulter le certificat ↗</a></p></div></div></section>
+<section class="section shell" id="network">
+  <div class="section-head reveal">
+    <div class="section-no">07 / RÉSEAUX & COMMUNAUTÉS</div>
+    <div><h2 class="section-title">Rester connecté, continuer à apprendre.</h2><p class="section-desc">Mes profils professionnels et quelques plateformes de formation et de certification liées à mon parcours.</p></div>
+  </div>
+  <div class="network-grid">
+    <a class="network-card reveal" href="https://github.com/karl0310" target="_blank" rel="noopener noreferrer"><span class="network-icon"><img src="https://cdn.simpleicons.org/github" alt=""></span><span><strong>GitHub</strong><small>Projets, dépôts et réalisations techniques</small></span><b>↗</b></a>
+    <a class="network-card reveal" href="https://www.linkedin.com/in/karl-bryan-tchoupe-398570432/" target="_blank" rel="noopener noreferrer"><span class="network-icon"><img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt=""></span><span><strong>LinkedIn</strong><small>Profil professionnel et parcours</small></span><b>↗</b></a>
+    <a class="network-card reveal" href="https://www.netacad.com/" target="_blank" rel="noopener noreferrer"><span class="network-icon network-letter">C</span><span><strong>Cisco Networking Academy</strong><small>Plateforme de formation aux technologies et réseaux</small></span><b>↗</b></a>
+    <a class="network-card reveal" href="https://certifications.catonetworks.com/certificates/iwz5uqsmbj" target="_blank" rel="noopener noreferrer"><span class="network-icon network-letter">C</span><span><strong>Cato Networks</strong><small>Certification SASE Expert Level 1</small></span><b>↗</b></a>
+  </div>
+</section>
+<section class="section shell" id="contact"><div class="contact-panel reveal"><div><div class="eyebrow">Une idée, un projet, une opportunité ?</div><h2>Faisons avancer les choses.</h2></div><a class="solid-link" href="mailto:dollarbryan8@gmail.com">ME CONTACTER ↗</a></div><div class="about-details" style="margin-top:28px"><div class="detail-row"><span>Téléphone</span><span><a href="tel:+237692860695">692 86 06 95</a> · <a href="tel:+237652591205">652 59 12 05</a></span></div><div class="detail-row"><span>E-mail</span><span><a href="mailto:dollarbryan8@gmail.com">dollarbryan8@gmail.com</a></span></div><div class="detail-row"><span>Localisation</span><span>Douala, Cameroun</span></div><div class="detail-row"><span>Langues</span><span>Français · Anglais</span></div></div></section>
 </main>
 <div class="robot-traveler" aria-hidden="true"><div class="hello-bot" role="img" aria-label="Petit robot bleu qui se déplace et fait coucou"><span class="bot-orbit bot-orbit-one"></span><span class="bot-orbit bot-orbit-two"></span><div class="bot-antenna"><i></i></div><div class="bot-head"><span class="bot-ear bot-ear-left"></span><span class="bot-ear bot-ear-right"></span><div class="bot-face"><i class="bot-eye"></i><i class="bot-eye"></i><span class="bot-cheek bot-cheek-left"></span><span class="bot-cheek bot-cheek-right"></span><span class="bot-mouth"></span></div></div><div class="bot-neck"></div><div class="bot-body"><span class="bot-badge">KB</span><span class="bot-panel-light"></span></div><div class="bot-arm bot-arm-left"><i></i></div><div class="bot-arm bot-arm-right"><span class="bot-hand"><i></i><i></i><i></i><i></i></span></div><div class="bot-leg bot-leg-left"></div><div class="bot-leg bot-leg-right"></div><span class="bot-shadow"></span><span class="bot-spark bot-spark-a">✦</span><span class="bot-spark bot-spark-b">✧</span><span class="bot-speech">Salut !</span></div></div>
 <footer class="shell"><span>© <span id="year"></span> Tchoupe Pembe Karl Bryan · Portfolio</span><div class="footer-links"><a href="#home">Retour en haut ↑</a><a href="mailto:dollarbrayan8@gmail.com">E-mail</a></div></footer>
