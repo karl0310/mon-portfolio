@@ -178,13 +178,60 @@ body{background:radial-gradient(ellipse at 12% 4%,#dff5ff 0,transparent 34%),rad
  .skill,.timeline-row,.about-details,.about-copy,.contact-panel,.detail-row,.solid-link,.nav-cta{transition:none}
 }
 
+
+/* Mode sombre */
+body.dark-mode{
+ --paper:#0b1422;--white:#111f30;--ink:#e8f1fb;--muted:#9aadc1;
+ --line:#26394d;--accent:#42bdf0;--green:#173d50;--dark:#07101c;
+ background:radial-gradient(ellipse at 12% 4%,#12334a 0,transparent 34%),radial-gradient(ellipse at 90% 22%,#142b49 0,transparent 32%),linear-gradient(135deg,#0b1422,#0d1b2b 55%,#0a1725);
+ color:var(--ink);
+}
+body.dark-mode .topbar{border-color:var(--line)}
+body.dark-mode .nav{color:#bdcbd9}
+body.dark-mode .nav-cta{border-color:#8aa4bb;color:var(--ink)}
+body.dark-mode .nav-cta:hover{background:#e8f1fb;color:#0b1422}
+body.dark-mode .intro,body.dark-mode .project p{color:#aebed0}
+body.dark-mode .orbit{border-color:#31516a}
+body.dark-mode .orbit:before,body.dark-mode .orbit:after{border-color:#29465d}
+body.dark-mode .orbit-label{background:var(--paper);color:#b6c8d9}
+body.dark-mode .ticker{background:#050c15;color:#dcecff}
+body.dark-mode .ticker b{color:#42bdf0}
+body.dark-mode .skills-section{background:#101f30}
+body.dark-mode .skill-grid{border-color:#294158}
+body.dark-mode .skill{border-color:#294158}
+body.dark-mode .skill:hover{background:#172b40}
+body.dark-mode .project{background:#111f30;border-color:#294158}
+body.dark-mode .project-visual{filter:brightness(.78) saturate(.8)}
+body.dark-mode .project-index{color:#d5e3f1}
+body.dark-mode .project-link{border-color:#8da8c0}
+body.dark-mode .filter{border-color:#38516a;color:#b8c9da}
+body.dark-mode .filter.active,body.dark-mode .filter:hover{background:#42bdf0;border-color:#42bdf0;color:#071421}
+body.dark-mode .experience{background:#050d18;color:#e8f1fb}
+body.dark-mode .experience .timeline{border-color:#294158}
+body.dark-mode .experience .timeline-row{border-color:#294158}
+body.dark-mode .experience .timeline-date{color:#67c8ef}
+body.dark-mode .experience .timeline-row p{color:#aebed0}
+body.dark-mode .contact-panel{background:#163c50;color:#edf8ff}
+body.dark-mode .contact-panel .eyebrow{color:#8cdefb}
+body.dark-mode .solid-link{background:#42bdf0;color:#071421}
+body.dark-mode .solid-link:hover{background:#8cdefb}
+body.dark-mode .text-link{border-color:#718da5}
+body.dark-mode .detail-row{border-color:var(--line)}
+body.dark-mode .footer-links,body.dark-mode footer{color:#aebed0}
+body.dark-mode .contact-panel:after{color:#ffffff12}
+body.dark-mode .robot-traveler{opacity:.32}
+.theme-toggle{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font-size:19px;cursor:pointer;transition:transform .25s,background .25s,border-color .25s}
+.theme-toggle:hover{transform:rotate(-12deg) scale(1.08);background:var(--white);border-color:var(--accent)}
+body.dark-mode .theme-toggle{border-color:#3a5872;color:#e8f1fb}
+@media(max-width:900px){.theme-toggle{flex-shrink:0}}
+
 </style>
 </head>
 <body>
 <header class="topbar shell">
 <a class="brand" href="#home" onclick="restartName(event)">KARL BRYAN<span>.</span></a>
 <nav class="nav"><a href="#about">À propos</a><a href="#expertise">Compétences</a><a href="#work">Réalisations</a><a href="#experience">Expériences</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a></nav>
-<button class="nav-cta" onclick="openAdmin()">ESPACE ADMIN ↗</button>
+<div class="header-actions"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" title="Activer le mode sombre">☾</button><button class="nav-cta" onclick="openAdmin()">ESPACE ADMIN ↗</button></div>
 </header>
 <main>
 <section class="hero shell" id="home">
@@ -212,6 +259,30 @@ body{background:radial-gradient(ellipse at 12% 4%,#dff5ff 0,transparent 34%),rad
 <div class="robot-traveler" aria-hidden="true"><div class="hello-bot" role="img" aria-label="Petit robot bleu qui se déplace et fait coucou"><span class="bot-orbit bot-orbit-one"></span><span class="bot-orbit bot-orbit-two"></span><div class="bot-antenna"><i></i></div><div class="bot-head"><span class="bot-ear bot-ear-left"></span><span class="bot-ear bot-ear-right"></span><div class="bot-face"><i class="bot-eye"></i><i class="bot-eye"></i><span class="bot-cheek bot-cheek-left"></span><span class="bot-cheek bot-cheek-right"></span><span class="bot-mouth"></span></div></div><div class="bot-neck"></div><div class="bot-body"><span class="bot-badge">KB</span><span class="bot-panel-light"></span></div><div class="bot-arm bot-arm-left"><i></i></div><div class="bot-arm bot-arm-right"><span class="bot-hand"><i></i><i></i><i></i><i></i></span></div><div class="bot-leg bot-leg-left"></div><div class="bot-leg bot-leg-right"></div><span class="bot-shadow"></span><span class="bot-spark bot-spark-a">✦</span><span class="bot-spark bot-spark-b">✧</span><span class="bot-speech">Salut !</span></div></div>
 <footer class="shell"><span>© <span id="year"></span> Tchoupe Pembe Karl Bryan · Portfolio</span><div class="footer-links"><a href="#home">Retour en haut ↑</a><a href="mailto:dollarbrayan8@gmail.com">E-mail</a></div></footer>
 <div id="backdrop" class="backdrop" onclick="if(event.target===this)closeAdmin()"><div class="modal"><div id="modalcontent"></div></div></div>
+<script>
+(function(){
+ const body=document.body;
+ const button=document.getElementById('themeToggle');
+ if(!button)return;
+ let saved='light';
+ try{saved=localStorage.getItem('portfolio-theme')||'light'}catch(e){}
+ function apply(mode){
+   const dark=mode==='dark';
+   body.classList.toggle('dark-mode',dark);
+   button.textContent=dark?'☀':'☾';
+   button.setAttribute('aria-label',dark?'Activer le mode clair':'Activer le mode sombre');
+   button.title=dark?'Activer le mode clair':'Activer le mode sombre';
+   const meta=document.querySelector('meta[name="theme-color"]');
+   if(meta)meta.content=dark?'#0b1422':'#f4f1eb';
+ }
+ apply(saved);
+ button.addEventListener('click',function(){
+   const next=body.classList.contains('dark-mode')?'light':'dark';
+   apply(next);
+   try{localStorage.setItem('portfolio-theme',next)}catch(e){}
+ });
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL="https://hdmzjjfbwzeydrxgmnao.supabase.co";
