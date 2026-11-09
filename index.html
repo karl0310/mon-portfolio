@@ -456,6 +456,38 @@ body.dark-mode .tech-text-icon{background:#21415c;color:#9be5ff}
 @keyframes welcomeTwinkle{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(18deg)}}
 @media(max-width:700px){.robot-traveler{transform:scale(.52);animation-duration:36s!important}.welcome-bubble{min-width:180px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){.robot-traveler,.welcome-bot,.welcome-wave,.welcome-spark,.welcome-bubble,.bubble-line{animation:none!important}.welcome-bubble{opacity:1;visibility:visible}.bubble-intro{display:none}.bubble-hello{opacity:1}}
+
+/* Ajustement : un seul petit assistant, discret et hors du contenu */
+.robot-traveler{
+ position:fixed!important;left:auto!important;right:12px!important;top:auto!important;bottom:10px!important;
+ width:112px!important;height:132px!important;z-index:6!important;opacity:.96!important;
+ transform:none!important;transform-origin:center!important;
+ animation:assistantDrift 5s ease-in-out infinite!important;
+ filter:drop-shadow(0 5px 10px #087fca22)!important;
+}
+.robot-traveler:before,.robot-traveler:after{content:none!important;display:none!important}
+.welcome-bot{width:112px!important;height:132px!important;animation:none!important}
+.welcome-bot-svg{width:105px!important;height:120px!important}
+.welcome-bubble{
+ top:-39px!important;left:auto!important;right:0!important;transform:none!important;
+ min-width:0!important;width:170px!important;max-width:170px!important;
+ padding:7px 10px!important;font-size:10px!important;border-radius:12px 12px 3px 12px!important;
+ animation:bubbleAppear 8s ease-in-out infinite!important;
+}
+.welcome-wave{animation:welcomeWave .65s ease-in-out infinite alternate!important}
+.welcome-spark{font-size:13px!important}
+.spark-one{top:36px!important;left:0!important}.spark-two{right:0!important;bottom:18px!important}
+@keyframes assistantDrift{0%,100%{right:12px;bottom:10px}50%{right:20px;bottom:17px}}
+@media(max-width:700px){
+ .robot-traveler{right:7px!important;bottom:7px!important;width:90px!important;height:108px!important;animation-duration:5s!important}
+ .welcome-bot{width:90px!important;height:108px!important}
+ .welcome-bot-svg{width:86px!important;height:98px!important}
+ .welcome-bubble{width:150px!important;max-width:150px!important;top:-36px!important;font-size:9px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .robot-traveler{animation:none!important;right:8px!important;bottom:8px!important}
+ .welcome-bubble{animation:none!important;opacity:1!important;visibility:visible!important}
+}
 </style>
 </head>
 <body>
