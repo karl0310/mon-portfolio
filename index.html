@@ -144,6 +144,40 @@ body{background:radial-gradient(ellipse at 12% 4%,#dff5ff 0,transparent 34%),rad
  .robot-traveler{animation:none;left:auto;right:8px;top:auto;bottom:8px;transform:scale(.3);opacity:.35}
 }
 
+
+/* Animations dynamiques supplémentaires */
+.typed-name{display:inline-block;min-height:1.35em;padding-right:5px;border-right:3px solid var(--accent);animation:nameCursor .8s steps(1) infinite}
+@keyframes nameCursor{50%{border-color:transparent}}
+.hero .eyebrow{animation:fadeSlide .9s both}
+.hero h1{animation:fadeSlide 1s .12s both}
+.hero .typed-name{animation:fadeSlide .9s .28s both,nameCursor .8s steps(1) infinite}
+.hero .intro{animation:fadeSlide 1s .42s both}
+.hero-actions{animation:fadeSlide 1s .56s both}
+.orbit{animation:orbitFloat 5s ease-in-out infinite,orbitGlow 4s ease-in-out infinite}
+.orbit-core{animation:corePulse 2.8s ease-in-out infinite}
+.orbit-label{animation:labelFloat 3.5s ease-in-out infinite}
+.label-b{animation-delay:.5s}.label-c{animation-delay:1s}
+.skill,.timeline-row,.about-details,.about-copy,.contact-panel,.detail-row{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.skill:hover,.timeline-row:hover{transform:translateY(-7px);box-shadow:0 16px 34px #087fca18}
+.skill h3,.section-title{transition:color .3s ease}
+.skill:hover h3{color:var(--accent)}
+.section-head .section-no{animation:softPulse 3s ease-in-out infinite}
+.section-title{background:linear-gradient(90deg,var(--ink),#087fca,var(--ink));background-size:200% auto;background-clip:text;-webkit-background-clip:text;transition:background-position .7s ease}
+.section-head:hover .section-title{background-position:100% center}
+.solid-link,.nav-cta{transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.solid-link:hover,.nav-cta:hover{transform:translateY(-3px);box-shadow:0 10px 24px #087fca2b}
+.ticker-track span{transition:transform .25s ease}
+.ticker-track span:hover{transform:scale(1.08)}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes orbitGlow{0%,100%{filter:drop-shadow(0 0 0 #078dcc00)}50%{filter:drop-shadow(0 12px 20px #078dcc22)}}
+@keyframes softPulse{0%,100%{opacity:.72}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .typed-name{animation:none;border-right:0}
+ .hero .eyebrow,.hero h1,.hero .typed-name,.hero .intro,.hero-actions{animation:none}
+ .orbit,.orbit-core,.orbit-label,.section-head .section-no{animation:none}
+ .skill,.timeline-row,.about-details,.about-copy,.contact-panel,.detail-row,.solid-link,.nav-cta{transition:none}
+}
+
 </style>
 </head>
 <body>
@@ -239,12 +273,26 @@ if("IntersectionObserver" in window){const observer=new IntersectionObserver(ent
  const target=document.getElementById('typedName');
  if(!target)return;
  const full='Tchoupe Pembe Karl Bryan';
- let index=0;
- target.textContent='';
- const tick=()=>{index++;target.textContent=full.slice(0,index);if(index<full.length)setTimeout(tick,115)};
- setTimeout(tick,500);
+ let index=0, deleting=false, timer=null;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(reduced){target.textContent=full;return}
+ function typeLoop(){
+   target.textContent=full.slice(0,index);
+   if(!deleting){
+     if(index<full.length){index++;timer=setTimeout(typeLoop,105)}
+     else{deleting=true;timer=setTimeout(typeLoop,1900)}
+   }else{
+     if(index>0){index--;timer=setTimeout(typeLoop,55)}
+     else{deleting=false;timer=setTimeout(typeLoop,550)}
+   }
+ }
+ typeLoop();
  const brand=document.querySelector('.brand');
- if(brand)brand.addEventListener('click',function(event){event.preventDefault();document.getElementById('home').scrollIntoView({behavior:'smooth'});index=0;target.textContent='';setTimeout(tick,250)});
+ if(brand)brand.addEventListener('click',function(event){
+   event.preventDefault();
+   document.getElementById('home').scrollIntoView({behavior:'smooth'});
+   clearTimeout(timer);index=0;deleting=false;target.textContent='';timer=setTimeout(typeLoop,300);
+ });
 })();
 </script>
 
