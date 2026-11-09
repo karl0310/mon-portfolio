@@ -331,6 +331,54 @@ body.dark-mode .tech-text-icon{background:#21415c;color:#9be5ff}
 
 
 .crop-list{display:grid;gap:16px;margin-top:14px}.crop-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--white)}.crop-preview{width:100%;max-width:420px;aspect-ratio:16/9;overflow:hidden;border-radius:7px;background:#e7e7e7;margin-bottom:12px}.crop-preview img{width:100%;height:100%;object-fit:cover;display:block}.crop-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.crop-controls label{font-size:11px;color:var(--muted);display:grid;gap:5px}.crop-controls input,.crop-controls select{width:100%;min-width:0}.crop-name{font-size:12px;font-weight:700;margin-bottom:8px;overflow-wrap:anywhere}@media(max-width:560px){.crop-controls{grid-template-columns:1fr}}
+
+
+/* UNIVERS 3D — profondeur, objets flottants et interactions */
+:root{--neon:#19b9ee;--neon2:#6b7cff;--depth-shadow:0 24px 55px rgba(8,35,65,.16)}
+.hero-art{perspective:1100px;isolation:isolate}
+.orbit{transform-style:preserve-3d;animation:orbitFloat 7s ease-in-out infinite;box-shadow:inset 0 0 35px #25aee70b,0 22px 55px #102d4510}
+.orbit-core{transform:translateZ(55px);background:linear-gradient(145deg,#a8eaff,#2389c9 58%,#164b82);color:#fff;box-shadow:inset -12px -14px 25px #092e5a66,inset 8px 8px 18px #ffffff80,0 18px 35px #087fca55;animation:corePulse 4s ease-in-out infinite}
+.orbit:before{transform:translateZ(22px) rotateX(68deg);border-color:#38aeea}
+.orbit:after{transform:translateZ(42px) rotateY(67deg);border-color:#8b9dff}
+.orbit-label{z-index:3;border:1px solid #9bdcf1;border-radius:5px;box-shadow:0 8px 22px #0d5c8d20;transform:translateZ(65px);color:#12648d}
+.label-a{animation:chipFloat 5s ease-in-out infinite}
+.label-b{animation:chipFloat 6s ease-in-out -1.4s infinite}
+.label-c{animation:chipFloat 5.5s ease-in-out -2.1s infinite}
+.hero-art:before,.hero-art:after{content:'</>';position:absolute;z-index:-1;font:700 34px 'DM Mono',monospace;color:#1ba9df;opacity:.22;filter:drop-shadow(0 8px 12px #149bd944)}
+.hero-art:before{top:12%;left:2%;transform:rotateY(35deg) rotateZ(-14deg);animation:codeFloat 6s ease-in-out infinite}
+.hero-art:after{content:'01';right:4%;bottom:16%;font-size:26px;color:#697bff;transform:rotateY(-35deg);animation:codeFloat 7s ease-in-out -2s infinite}
+.cyber-cube{position:absolute;width:48px;height:48px;z-index:2;transform-style:preserve-3d;animation:cubeDrift 8s ease-in-out infinite;pointer-events:none}
+.cyber-cube:before,.cyber-cube:after{content:'';position:absolute;inset:0;border:1px solid #1ca9df;background:linear-gradient(135deg,#58d9ff55,#2166b822);box-shadow:inset 0 0 18px #39c4ff35,0 10px 24px #1479ae20}
+.cyber-cube:before{transform:translateZ(24px)}
+.cyber-cube:after{transform:rotateY(90deg) translateZ(24px)}
+.cyber-cube.cube-one{top:12%;right:16%}
+.cyber-cube.cube-two{bottom:17%;left:12%;width:30px;height:30px;animation-delay:-3s;animation-duration:9s}
+@keyframes orbitFloat{0%,100%{transform:rotateX(7deg) rotateY(-9deg) translateY(0)}50%{transform:rotateX(-5deg) rotateY(8deg) translateY(-12px)}}
+@keyframes corePulse{0%,100%{box-shadow:inset -12px -14px 25px #092e5a66,inset 8px 8px 18px #ffffff80,0 18px 35px #087fca55}50%{box-shadow:inset -12px -14px 25px #092e5a66,inset 8px 8px 18px #ffffff80,0 22px 48px #087fca88}}
+@keyframes chipFloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes codeFloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -14px;rotate:8deg}}
+@keyframes cubeDrift{0%,100%{transform:rotateX(-22deg) rotateY(28deg) translateY(0)}50%{transform:rotateX(25deg) rotateY(115deg) translateY(-17px)}}
+.skill,.project,.featured-card,.network-card,.certificate-card{transform-style:preserve-3d;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;will-change:transform}
+.skill,.project,.featured-card,.network-card{position:relative;isolation:isolate}
+.skill:after,.project:after,.featured-card:after,.network-card:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,#42c7ff12,transparent 42%,#7a83ff0c);opacity:.8}
+.skill:hover,.project:hover,.featured-card:hover,.network-card:hover{box-shadow:var(--depth-shadow);border-color:#62c8ed}
+.skill>* ,.project-body,.featured-card>* ,.network-card>*{transform:translateZ(12px)}
+.skill-num,.project-meta,.featured-kicker{color:var(--neon)}
+.section-title{text-wrap:balance}
+.ticker{position:relative;box-shadow:0 12px 30px #0b1d2a18}
+.ticker-track span{transform:translateZ(20px);text-shadow:0 3px 12px #24b6e955}
+.detail-row,.timeline-row{transition:transform .3s ease,border-color .3s ease}
+.detail-row:hover,.timeline-row:hover{transform:translateX(7px);border-color:var(--neon)}
+.tech-chip{transition:transform .25s ease,box-shadow .25s ease}
+.tech-chip:hover{transform:translateY(-5px) rotateX(8deg);box-shadow:0 9px 18px #159bd52b}
+.network-icon{transform-style:preserve-3d;transition:transform .35s ease,box-shadow .35s ease}
+.network-card:hover .network-icon{transform:translateZ(18px) rotateY(18deg) rotateX(-9deg);box-shadow:0 10px 20px #159bd533}
+.contact-panel{position:relative;overflow:hidden;isolation:isolate;box-shadow:0 22px 55px #132f3a18}
+.contact-panel:before{content:'{ }';position:absolute;right:4%;top:0;font:800 clamp(90px,15vw,190px) 'DM Mono',monospace;color:#fff;opacity:.18;transform:rotateY(-28deg) rotateZ(-8deg);pointer-events:none;z-index:-1}
+.robot-traveler{filter:drop-shadow(0 18px 22px #0b8fc333)}
+@media(max-width:700px){.cyber-cube{transform:scale(.72)}.hero-art:before{left:0}.hero-art:after{right:0}.skill:hover,.project:hover,.featured-card:hover,.network-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.orbit,.orbit-core,.orbit-label,.hero-art:before,.hero-art:after,.cyber-cube{animation:none!important}.skill,.project,.featured-card,.network-card,.detail-row,.timeline-row{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -345,7 +393,7 @@ body.dark-mode .tech-text-icon{background:#21415c;color:#9be5ff}
 <h1>La technologie, avec <em>sens</em> et méthode.</h1><p class="typed-name" id="typedName" aria-label="Tchoupe Pembe Karl Bryan">Tchoupe Pembe Karl Bryan</p>
 <p class="intro">Je suis <strong>Tchoupe Pembe Karl Bryan</strong>, informaticien titulaire d’un DUT en Génie Informatique obtenu en 2026. Je suis également technicien en maintenance et installation des systèmes électroniques, et je poursuis actuellement une Licence de Technologie en Cybersécurité à l’IUT de Douala.</p>
 <div class="hero-actions"><a class="solid-link" href="#work">DÉCOUVRIR MES PROJETS <span>↗</span></a><a class="text-link" href="#contact">Entrer en contact</a><a class="solid-link cv-download" id="cvDownload" href="https://hdmzjjfbwzeydrxgmnao.supabase.co/storage/v1/object/public/portfolio-projects/documents/CV-Karl-Bryan.pdf" target="_blank" rel="noopener" download>TÉLÉCHARGER MON CV <span>↓</span></a></div></div>
-<div class="hero-art reveal"><div class="orbit"><div class="orbit-core">KB</div><span class="orbit-label label-a">INFORMATIQUE</span><span class="orbit-label label-b">SYSTÈMES & RÉSEAUX</span><span class="orbit-label label-c">CYBERSÉCURITÉ</span></div><div class="availability"><i></i> Curieux de nouveaux projets</div></div>
+<div class="hero-art reveal"><div class="orbit"><div class="orbit-core">KB</div><span class="orbit-label label-a">INFORMATIQUE</span><span class="orbit-label label-b">SYSTÈMES & RÉSEAUX</span><span class="orbit-label label-c">CYBERSÉCURITÉ</span><span class="cyber-cube cube-one"></span><span class="cyber-cube cube-two"></span></div><div class="availability"><i></i> Curieux de nouveaux projets</div></div>
 </section>
 <div class="ticker"><div class="ticker-track"><span>TECHNOLOGIE <b>✳</b></span><span>SYSTÈMES <b>✳</b></span><span>CYBERSÉCURITÉ <b>✳</b></span><span>DÉVELOPPEMENT WEB <b>✳</b></span><span>SÉCURITÉ ÉLECTRONIQUE <b>✳</b></span><span aria-hidden="true">TECHNOLOGIE <b>✳</b></span><span aria-hidden="true">SYSTÈMES <b>✳</b></span><span aria-hidden="true">CYBERSÉCURITÉ <b>✳</b></span><span aria-hidden="true">DÉVELOPPEMENT WEB <b>✳</b></span><span aria-hidden="true">SÉCURITÉ ÉLECTRONIQUE <b>✳</b></span></div></div>
 <section class="section shell" id="about"><div class="section-head reveal"><div class="section-no">01 / À PROPOS</div><div><h2 class="section-title">Informaticien, avec une expérience technique de terrain.</h2><p class="section-desc">J'aime apprendre en faisant, comprendre les systèmes et transformer les besoins en solutions fiables et concrètes.</p></div></div>
@@ -555,6 +603,28 @@ if("IntersectionObserver" in window){const observer=new IntersectionObserver(ent
    event.preventDefault();
    document.getElementById('home').scrollIntoView({behavior:'smooth'});
    clearTimeout(timer);index=0;deleting=false;target.textContent='';timer=setTimeout(typeLoop,300);
+ });
+})();
+</script>
+
+
+<script>
+/* Inclinaison 3D subtile au pointeur — désactivée sur tactile et mouvement réduit */
+(function(){
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+ if(reduced||!fine)return;
+ const cards=document.querySelectorAll('.skill,.project,.featured-card,.network-card');
+ cards.forEach(card=>{
+   card.addEventListener('pointermove',e=>{
+     const r=card.getBoundingClientRect();
+     const x=(e.clientX-r.left)/r.width;
+     const y=(e.clientY-r.top)/r.height;
+     const ry=(x-.5)*7;
+     const rx=(.5-y)*6;
+     card.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-4px)';
+   });
+   card.addEventListener('pointerleave',()=>{card.style.transform=''});
  });
 })();
 </script>
