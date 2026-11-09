@@ -379,6 +379,63 @@ body.dark-mode .tech-text-icon{background:#21415c;color:#9be5ff}
 @media(max-width:700px){.cyber-cube{transform:scale(.72)}.hero-art:before{left:0}.hero-art:after{right:0}.skill:hover,.project:hover,.featured-card:hover,.network-card:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.orbit,.orbit-core,.orbit-label,.hero-art:before,.hero-art:after,.cyber-cube{animation:none!important}.skill,.project,.featured-card,.network-card,.detail-row,.timeline-row{transition:none!important}}
 
+
+
+/* ROBOT PILOTE — fusée 3D */
+.robot-traveler{
+ width:300px;height:390px;opacity:.94;z-index:4;
+ transform:scale(.38);transform-origin:center center;
+ animation:rocketJourney 34s cubic-bezier(.45,0,.55,1) infinite;
+ filter:drop-shadow(0 18px 22px #087fca44);
+}
+.robot-traveler:before{
+ content:'';position:absolute;left:83px;top:34px;width:134px;height:292px;
+ z-index:0;border:5px solid #087fca;border-radius:68px 68px 42px 42px;
+ background:linear-gradient(100deg,#d9f7ff 0%,#fff 24%,#69c9f0 52%,#167fbd 100%);
+ clip-path:polygon(50% 0,88% 19%,82% 76%,100% 91%,68% 87%,50% 100%,32% 87%,0 91%,18% 76%,12% 19%);
+ box-shadow:inset -12px -10px 20px #064d8a55,0 12px 28px #087fca44;
+}
+.robot-traveler:after{
+ content:'';position:absolute;left:121px;top:275px;width:58px;height:102px;z-index:0;
+ background:linear-gradient(180deg,#fff6a5 0%,#ffae37 35%,#ff623f 72%,transparent 100%);
+ clip-path:polygon(18% 0,82% 0,100% 38%,72% 100%,50% 72%,28% 100%,0 38%);
+ filter:drop-shadow(0 0 14px #ff9b35);
+ transform-origin:50% 0;animation:rocketFlame .22s ease-in-out infinite alternate;
+}
+.robot-traveler .hello-bot{
+ z-index:2;transform:scale(.76) translateY(-1px);
+ transform-origin:center center;animation:pilotBob 1.5s ease-in-out infinite;
+}
+.robot-traveler .bot-orbit{opacity:.5;border-color:#43c9ff}
+.robot-traveler .bot-speech{background:#062a49;color:#a9edff;border:1px solid #55d7ff}
+.robot-traveler .bot-arm-right{animation:pilotWave .55s ease-in-out infinite alternate}
+.robot-traveler .bot-shadow{display:none}
+@keyframes rocketJourney{
+ 0%{left:-5%;top:4%;transform:rotate(-18deg) scale(.38)}
+ 18%{left:calc(100% - 205px);top:16%;transform:rotate(20deg) scale(.38)}
+ 38%{left:calc(100% - 205px);top:57%;transform:rotate(8deg) scale(.38)}
+ 58%{left:45%;top:72%;transform:rotate(-18deg) scale(.38)}
+ 78%{left:-4%;top:49%;transform:rotate(-28deg) scale(.38)}
+ 100%{left:-5%;top:4%;transform:rotate(-18deg) scale(.38)}
+}
+@keyframes rocketFlame{from{transform:scaleY(.78) scaleX(.9);opacity:.8}to{transform:scaleY(1.18) scaleX(1.08);opacity:1}}
+@keyframes pilotBob{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes pilotWave{from{transform:rotate(-62deg)}to{transform:rotate(-25deg)}}
+@media(max-width:700px){
+ .robot-traveler{opacity:.72;animation-name:rocketJourneyMobile;animation-duration:30s;transform:scale(.27)}
+ @keyframes rocketJourneyMobile{
+  0%{left:-72px;top:5%;transform:rotate(-15deg) scale(.27)}
+  25%{left:calc(100% - 150px);top:24%;transform:rotate(18deg) scale(.27)}
+  50%{left:calc(100% - 150px);top:62%;transform:rotate(5deg) scale(.27)}
+  75%{left:-72px;top:72%;transform:rotate(-22deg) scale(.27)}
+  100%{left:-72px;top:5%;transform:rotate(-15deg) scale(.27)}
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .robot-traveler{animation:none;left:auto;right:8px;top:auto;bottom:8px;transform:scale(.25);opacity:.45}
+ .robot-traveler:after,.robot-traveler .hello-bot,.robot-traveler .bot-arm-right{animation:none}
+}
+
 </style>
 </head>
 <body>
