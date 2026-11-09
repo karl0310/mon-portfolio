@@ -436,6 +436,26 @@ body.dark-mode .tech-text-icon{background:#21415c;color:#9be5ff}
  .robot-traveler:after,.robot-traveler .hello-bot,.robot-traveler .bot-arm-right{animation:none}
 }
 
+
+/* Nouveau compagnon d'accueil : robot souriant, salut animé et bulle temporaire */
+.robot-traveler{position:fixed!important;left:0;top:0;width:280px;height:300px;z-index:9!important;pointer-events:none;opacity:1!important;transform:scale(.72);transform-origin:top left;animation:robotRoam 42s ease-in-out infinite!important;filter:drop-shadow(0 12px 18px #168fc822)}
+.welcome-bot{position:relative;width:280px;height:300px;display:flex;align-items:flex-end;justify-content:center;animation:welcomeBob 3.6s ease-in-out infinite}
+.welcome-bot-svg{width:230px;height:260px;overflow:visible}
+.welcome-wave{transform-box:fill-box;transform-origin:15% 90%;animation:welcomeWave .65s ease-in-out infinite alternate}
+.welcome-bubble{position:absolute;top:2px;left:50%;transform:translateX(-50%);min-width:190px;max-width:245px;padding:12px 17px;border:1px solid #c4eafa;border-radius:18px 18px 18px 5px;background:#fff;color:#087fca;text-align:center;font:700 13px/1.45 Manrope,sans-serif;box-shadow:0 9px 28px #168fc52b;animation:bubbleAppear 8s ease-in-out infinite}
+.bubble-line{display:block;white-space:normal}
+.bubble-hello{animation:bubbleHello 8s infinite}
+.bubble-intro{animation:bubbleIntro 8s infinite}
+.welcome-spark{position:absolute;color:#0c9bd2;font-size:23px;animation:welcomeTwinkle 2s ease-in-out infinite}
+.spark-one{top:105px;left:10px}.spark-two{right:7px;bottom:45px;animation-delay:1s}
+@keyframes welcomeBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes welcomeWave{from{transform:rotate(-12deg)}to{transform:rotate(28deg)}}
+@keyframes bubbleAppear{0%,8%,82%,100%{opacity:0;visibility:hidden;transform:translate(-50%,8px) scale(.94)}12%,72%{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1)}}
+@keyframes bubbleHello{0%,32%,100%{opacity:0;visibility:hidden}12%,26%{opacity:1;visibility:visible}}
+@keyframes bubbleIntro{0%,34%,100%{opacity:0;visibility:hidden}43%,75%{opacity:1;visibility:visible}}
+@keyframes welcomeTwinkle{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(18deg)}}
+@media(max-width:700px){.robot-traveler{transform:scale(.52);animation-duration:36s!important}.welcome-bubble{min-width:180px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.robot-traveler,.welcome-bot,.welcome-wave,.welcome-spark,.welcome-bubble,.bubble-line{animation:none!important}.welcome-bubble{opacity:1;visibility:visible}.bubble-intro{display:none}.bubble-hello{opacity:1}}
 </style>
 </head>
 <body>
@@ -545,7 +565,32 @@ body.dark-mode .tech-text-icon{background:#21415c;color:#9be5ff}
 </section>
 <section class="section shell" id="contact"><div class="contact-panel reveal"><div><div class="eyebrow">Une idée, un projet, une opportunité ?</div><h2>Faisons avancer les choses.</h2></div><a class="solid-link" href="mailto:dollarbryan8@gmail.com">ME CONTACTER ↗</a></div><div class="about-details" style="margin-top:28px"><div class="detail-row"><span>Téléphone</span><span><a href="tel:+237692860695">692 86 06 95</a> · <a href="tel:+237652591205">652 59 12 05</a></span></div><div class="detail-row"><span>E-mail</span><span><a href="mailto:dollarbryan8@gmail.com">dollarbryan8@gmail.com</a></span></div><div class="detail-row"><span>Localisation</span><span>Douala, Cameroun</span></div><div class="detail-row"><span>Langues</span><span>Français · Anglais</span></div></div></section>
 </main>
-<div class="robot-traveler" aria-hidden="true"><div class="hello-bot" role="img" aria-label="Petit robot bleu qui se déplace et fait coucou"><span class="bot-orbit bot-orbit-one"></span><span class="bot-orbit bot-orbit-two"></span><div class="bot-antenna"><i></i></div><div class="bot-head"><span class="bot-ear bot-ear-left"></span><span class="bot-ear bot-ear-right"></span><div class="bot-face"><i class="bot-eye"></i><i class="bot-eye"></i><span class="bot-cheek bot-cheek-left"></span><span class="bot-cheek bot-cheek-right"></span><span class="bot-mouth"></span></div></div><div class="bot-neck"></div><div class="bot-body"><span class="bot-badge">KB</span><span class="bot-panel-light"></span></div><div class="bot-arm bot-arm-left"><i></i></div><div class="bot-arm bot-arm-right"><span class="bot-hand"><i></i><i></i><i></i><i></i></span></div><div class="bot-leg bot-leg-left"></div><div class="bot-leg bot-leg-right"></div><span class="bot-shadow"></span><span class="bot-spark bot-spark-a">✦</span><span class="bot-spark bot-spark-b">✧</span><span class="bot-speech">Salut !</span></div></div>
+<div class="robot-traveler" aria-hidden="true">
+  <div class="welcome-bot">
+    <div class="welcome-bubble"><span class="bubble-line bubble-hello">Salut ! 👋</span><span class="bubble-line bubble-intro">Bienvenue ! Je suis l’assistant de Karl.</span></div>
+    <svg class="welcome-bot-svg" viewBox="0 0 240 270" role="img" aria-label="Robot bleu souriant qui fait coucou">
+      <ellipse cx="120" cy="250" rx="63" ry="10" fill="#168fc8" opacity=".16"/>
+      <path d="M120 30V17" stroke="#087fca" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="120" cy="13" r="9" fill="#ffbd59" stroke="#087fca" stroke-width="4"/>
+      <rect x="55" y="43" width="130" height="91" rx="29" fill="url(#botBlue)" stroke="#087fca" stroke-width="7"/>
+      <rect x="43" y="76" width="13" height="28" rx="6" fill="#75d7f5" stroke="#087fca" stroke-width="4"/>
+      <rect x="184" y="76" width="13" height="28" rx="6" fill="#75d7f5" stroke="#087fca" stroke-width="4"/>
+      <rect x="72" y="64" width="96" height="53" rx="19" fill="#103653"/>
+      <ellipse cx="99" cy="88" rx="7" ry="10" fill="#8df3ff"/><ellipse cx="141" cy="88" rx="7" ry="10" fill="#8df3ff"/>
+      <path d="M108 103Q120 113 132 103" fill="none" stroke="#8df3ff" stroke-width="4" stroke-linecap="round"/>
+      <rect x="105" y="135" width="30" height="15" rx="7" fill="#087fca"/>
+      <rect x="66" y="148" width="108" height="75" rx="24" fill="url(#botBody)" stroke="#087fca" stroke-width="7"/>
+      <rect x="91" y="169" width="58" height="33" rx="10" fill="#fff" stroke="#9cdef3" stroke-width="3"/>
+      <text x="120" y="192" text-anchor="middle" font-family="Manrope, sans-serif" font-size="19" font-weight="800" fill="#087fca">KB</text>
+      <path d="M66 164Q42 174 38 199" fill="none" stroke="#087fca" stroke-width="15" stroke-linecap="round"/>
+      <path d="M174 163Q200 146 203 118" fill="none" stroke="#087fca" stroke-width="15" stroke-linecap="round"/>
+      <g class="welcome-wave"><path d="M203 119Q212 105 224 108" fill="none" stroke="#087fca" stroke-width="13" stroke-linecap="round"/><circle cx="226" cy="106" r="13" fill="#b9ecff" stroke="#087fca" stroke-width="5"/></g>
+      <path d="M94 221L88 239" stroke="#087fca" stroke-width="15" stroke-linecap="round"/><path d="M146 221L152 239" stroke="#087fca" stroke-width="15" stroke-linecap="round"/>
+      <defs><linearGradient id="botBlue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#9de4ff"/></linearGradient><linearGradient id="botBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#faffff"/><stop offset="1" stop-color="#a6e4f8"/></linearGradient></defs>
+    </svg>
+    <span class="welcome-spark spark-one">✦</span><span class="welcome-spark spark-two">✧</span>
+  </div>
+</div><div class="bot-neck"></div><div class="bot-body"><span class="bot-badge">KB</span><span class="bot-panel-light"></span></div><div class="bot-arm bot-arm-left"><i></i></div><div class="bot-arm bot-arm-right"><span class="bot-hand"><i></i><i></i><i></i><i></i></span></div><div class="bot-leg bot-leg-left"></div><div class="bot-leg bot-leg-right"></div><span class="bot-shadow"></span><span class="bot-spark bot-spark-a">✦</span><span class="bot-spark bot-spark-b">✧</span><span class="bot-speech">Salut !</span></div></div>
 <footer class="shell"><span>© <span id="year"></span> Tchoupe Pembe Karl Bryan · Portfolio</span><div class="footer-links"><a href="#home">Retour en haut ↑</a><a href="mailto:dollarbrayan8@gmail.com">E-mail</a></div></footer>
 <div id="backdrop" class="backdrop" onclick="if(event.target===this)closeAdmin()"><div class="modal"><div id="modalcontent"></div></div></div>
 <script>
